@@ -7,21 +7,21 @@ if + else if 조합이나 switch 구문도 고려했으나 적절하지 않은 �
 
 ```swift
 @IBAction func yes(_ sender: Any) {
-    curruntAnswer = true
+    currentAnswer = true
 }
 
 @IBAction func no(_ sender: Any) {
-    curruntAnswer = false
+    currentAnswer = false
 }
 
 @IBAction func nextButton(_ sender: Any) {
-    if curruntAnswer == true {
+    if currentAnswer == true {
         if number ==  3 || number == 4 || number == 5 || number == 7 || number == 9 || number == 11 || number == 16 || number == 17  {
             score = score + 1
         }
     }
 
-    if curruntAnswer == false {
+    if currentAnswer == false {
         if number ==  0 || number == 1 || number == 2 || number == 6 || number == 8 || number == 10 || number == 12 || number == 13 || number == 14 || number == 15   {
             score = score + 1
         }
