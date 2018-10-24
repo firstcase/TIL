@@ -33,3 +33,21 @@ class TableViewController : UITableViewController  {
 
 2개의 테이블에 서로 다른 테스트의 이름을 넣어주었다.
 아직은 2개라서 if문으로 할당했지만, 향후 배열로 바꿔 줘야 할 것으로 보인다.
+
+
+# 테이블 뷰에서 화면 전환하기
+
+테이블 뷰에서 셀을 누르면 다음 화면으로 전환하는 기능을 추가했다.
+아직 테스트가 1개 밖에 구현이 안된 상태라 두번째 셀을 눌렀을 때는 숫자를 출력하도록 했다.
+
+
+```swift
+override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let t01 = self.storyboard!.instantiateViewController(withIdentifier: "TestNo1")
+            self.present(t01, animated: true)
+        } else if indexPath.row == 1 {
+            print("1")
+        }
+    }
+```
