@@ -28,7 +28,7 @@ Uniform Resource Locator. 하나의 서버에서 여러 리소스를 제공할 �
 URL은 리소스의 위치를 표시하는데 폴더는 /로 구분하고, 한글을 쓸 수 없다.
 ? 뒤에 쿼리스트링이라는 요소가 있어서 &를 기준으로 나눠서 볼 수 있다.
 
-e.g. https://search.daum.net/search?w=tot&DA=YZR&t__nil_searchbox=btn&sug=&sugo=&q=%ED%95%9C%EB%B9%84%EC%9E%90 에서 ? 뒤에 쿼리스트링을 
+e.g. https://search.daum.net/search?w=tot&DA=YZR&t__nil_searchbox=btn&sug=&sugo=&q=%ED%95%9C%EB%B9%84%EC%9E%90 에서 ? 뒤에 쿼리스트링을
 W=tot / DA = YZR 등으로 &를 기준으로 나눠서 볼 수 있다.
 
 
@@ -40,3 +40,20 @@ W=tot / DA = YZR 등으로 &를 기준으로 나눠서 볼 수 있다.
 
 HTTP 메시지 구조를 보면 요청라인, 요청헤더, 본문으로 구성되어 있다.
 요청라인은 대체로 GET 이나 POST로 시작한다. 그리고 리소스 위치인 URL이 들어가게 된다.
+
+
+## swift에서 GET 실습
+버튼을 하나 만들어서 <신비한 동물사전2> 영화 url의 페이지를 불러와 보았다.
+
+```swift
+@IBAction func button01(_ sender: Any) {
+    print("까꿍")
+    do {
+        let url = URL(string: "https://movie.daum.net/moviedb/main?movieId=111490")
+        let response = try String(contentsOf: url!)
+        print(response)
+    } catch let e as NSError {
+        print(e.localizedDescription)
+    }
+}
+```
