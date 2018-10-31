@@ -57,3 +57,33 @@ HTTP 메시지 구조를 보면 요청라인, 요청헤더, 본문으로 구성�
     }
 }
 ```
+
+
+## swift에서 POST 실습
+
+한글 맞춤법 검사기 사이트에 POST방식으로 http 요청을 보내보았습니다.
+엄청나게 긴 코드를 작성해야 했는데, 알라모파이어를 쓰면 더 간단하게 할 수 있다고 합니다.
+
+```swift
+@IBAction func button01(_ sender: Any) {
+    print("까꿍")
+
+    let param = "text1=아버지가방에들어가신다"
+
+    let url = URL(string: "http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp")
+
+    var request = URLRequest(url: url!)
+    request.httpMethod = "POST"
+    request.httpBody = param.data(using: .utf8)
+
+    request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+
+    let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+        let string1 = String(data: data!, encoding: String.Encoding.utf8)
+        print(string1)
+    }
+
+    task.resume()
+
+}
+```
