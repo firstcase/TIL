@@ -87,3 +87,23 @@ HTTP 메시지 구조를 보면 요청라인, 요청헤더, 본문으로 구성�
 
 }
 ```
+
+
+## Alamofire를 사용한 POST방식 실습
+
+Alomofire라는 라이브러리를 사용하면 좀 더 쉽게 웹API를 호출할 수 있다.
+https://github.com/Alamofire/Alamofire
+Xcode 의 클론 기능을 활용하여 Alamofire 소스코드를 직접 프로젝트에 포함시켰다.
+그리고 바로 위의 POST방식 실습을 아래와 같은 짧은 코드로 작성할 수 있다.
+
+```swift
+let param: Parameters = [
+    "text1": "아버지가방에들어가신다"
+]
+Alamofire.request("http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp",
+                  method: .post,
+                  parameters: param,
+                  encoding: URLEncoding.httpBody).responseString() { response in
+                    print(response.result.value!)
+}
+```
