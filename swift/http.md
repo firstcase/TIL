@@ -107,3 +107,34 @@ Alamofire.request("http://speller.cs.pusan.ac.kr/PnuWebSpeller/lib/check.asp",
                     print(response.result.value!)
 }
 ```
+
+
+## CocoaPods로 Alomofire 추가하기
+
+Xcode의 클론 기능 대신 CocoaPods를 사용해서 Alomofire를 추가할 수 있다.
+개발꼬꼬마 입장에서 클론 기능이 훨씬 편했으나,
+클론으로는 많은 오픈 소스의 버전관리를 해 줄 수 없다고 한다.
+
+
+나는 Alomofire 딱 하나만 쓸 건데 그냥 클론으로 하면 안 돼요? 하고
+소심하게 반행해 보았으나, 향후 확장성에 대한 고려도 해야하고,
+어쨌거나 모든 개발자가 다 CocoaPods를 쓰고 있다고 하니 멍청이 임을 굳이 티내고 싶지 않다면 그냥 CocoaPods ㄱㄱ
+
+```swift
+import Alamofire
+```
+클론 기능을 쓰지 않은 상태라 임포트를 하더라도  하단 코드가 오류가 난다.
+저장 후 파일을 닫고, 터미널을 열어서 CocoaPods을 설치한다.
+https://github.com/Alamofire/Alamofire#installation
+
+터미널에서 Podfile을 만들고 인스톨 가이드 대로 버전을 맞게 잘 적어준다.
+```
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '12.0'
+use_frameworks!
+
+target 'Cocoapods' do
+  pod 'Alamofire', '~> 4.7'
+end
+```
+이 파일을 저장한 후 터미널에서 Pod stall 을 해주면 끗.
