@@ -138,3 +138,30 @@ target 'Cocoapods' do
 end
 ```
 이 파일을 저장한 후 터미널에서 Pod stall 을 해주면 끗.
+
+
+## JSON으로 응답 저장하기
+
+만들고 있는 앱에서 사용자가 응답했을 때 JSON으로 저장을 하는 코드를 짜봤다.
+
+```swift
+var answers = [Bool?]()
+// ...
+answers.append(curruntAnswer)
+```
+
+배열을 만든 뒤, 응답을 넘겨줄 때 배열에 추가한다.
+
+```swift
+let param: Parameters = [
+            "answers" : answers,
+            "score" : score
+        ]
+        Alamofire.request("http://10.0.1.7:3000/v1/answers",
+                          method: .post,
+                          parameters: param,
+                          encoding: JSONEncoding.default).responseString() { response in
+                            print(response.result.value!)
+```
+
+answers와 score를 Key로 하는 JSON을 생성해서 포스트 방식으로 보내준다.
