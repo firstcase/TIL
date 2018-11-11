@@ -23,3 +23,28 @@ var a = Node()
 
         print(a.next?.next?.value!)
 ```
+
+
+Node에 인덱스를 넣으면 값을 반환하는 메소드를 만들어 보았다.
+옵셔널타입 이슈로 핵빡셈 주의...
+
+```swift
+class Node {
+
+    var value : Int?
+    var next : Node?
+
+    func geta ( _ index : Int) -> Int? {
+        var final : Node? = self
+        if index == 0 {
+            return value
+        }
+        for _ in 0 ... index - 1 {
+            final = final?.next
+        }
+
+        return final?.value
+    }
+
+}
+```
