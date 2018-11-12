@@ -48,3 +48,20 @@ class Node {
 
 }
 ```
+
+
+이번에는 value를 넣으면 해당 밸류를 가진 Node의 index를 출력하는 메소드를 만들어 보았다.
+```swift
+func firstIndexOf(_ value : Int) -> Int? {
+    var final : Node? = self
+    var n : Int = 0
+    while final != nil {
+        if final?.value == value {
+            return n
+        }
+        n = n + 1
+        final = final?.next
+    }
+    return nil
+}
+```
