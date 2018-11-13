@@ -65,3 +65,16 @@ func firstIndexOf(_ value : Int) -> Int? {
     return nil
 }
 ```
+
+
+이번에는 모든 Node의 value를 출력하는 printAll이라는 메소드를 만들어 보았다.
+매일 메소드를 짜다보니 오늘쯤은 조금 익숙해졌다.
+```swift
+func printAll(){
+    var final : Node? = self
+    while final != nil {
+        print("\(final?.value)")
+        final = final?.next
+    }
+}
+```
