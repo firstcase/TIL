@@ -14,3 +14,31 @@ func plusString(_ x : String, _ y : String) -> String {
     return "\(x)\(y)"
 }
 ```
+
+분수를 더하기 위해서 Ratio 타입을 만들어 보았다.
+```swift
+class Ratio {
+    var numerator : Int
+    var denominator : Int
+
+    init(_ x : Int, _ y : Int) {
+        numerator = x
+        denominator = y
+    }
+
+    func plus(_ x : Ratio) -> Ratio {
+        var h = (numerator * x.denominator) + (denominator * x.numerator)
+        var i = denominator * x.denominator
+        return Ratio(h, i)
+    }
+
+
+}
+```
+
+뷰 컨트롤러에서 Ratio 타입을 더하는 함수를 만들어 보았다.
+```swift
+func plusRatio(_ x : Ratio, _ y : Ratio) -> Ratio {
+    return x.plus(y)
+}
+```
