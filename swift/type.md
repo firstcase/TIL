@@ -42,3 +42,23 @@ func plusRatio(_ x : Ratio, _ y : Ratio) -> Ratio {
     return x.plus(y)
 }
 ```
+
+
+## 타입 공부 후 리팩토링
+
+타입을 공부한 뒤 예전에 짠 코드를 약간 리팩토링 해 보았다.
+새로운 타입을 하나 만들었다.
+
+설문문항을 하나의 타입으로 만들고,  문항응답 처리 방식을 함께 저장할 수 있게 했다.
+딕셔너리로 만들어도 되지만 타입으로 만들면 실제 에러가 나기전에 오타를 디텍트할 수 있는 장점이 있다.
+
+```swift
+class Question {
+    var content : String
+    var isYesUp : Bool
+
+    init(_ content : String, _ isYesUp : Bool) {
+        self.content = content
+        self.isYesUp = isYesUp
+    }
+```
