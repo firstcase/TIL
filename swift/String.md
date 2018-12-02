@@ -17,6 +17,29 @@ s += "!!"       // "안녕 친구야!!"
 += <- 이런 식으로 쓰는 걸 오늘 처음 알았다.
 대체로 모든 개발자들이 익숙하게 쓴다고 한다. 하지만 나에게는 영 어색...
 
+문자열을 붙이는 예제를 만들어서 풀어보았다.
+```swift
+func printArr(_ longArr : [Int]) {
+    var sum = 0
+
+    for i in 0..<longArr.count {
+        sum = sum + longArr[i]
+    }
+
+    print(sum)
+}
+
+func printArr2(_ longArr : [Int]) {
+    var line = ""
+
+    for i in 0..<longArr.count {
+        line = line + String(longArr[i])
+    }
+
+    print(line)
+}
+```
+
 
 ## 문자열 길이
 문자열은 배열처럼 인식하기 때문에 길이도 배열을 확인할 때와 동일하다.
