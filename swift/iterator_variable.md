@@ -42,3 +42,24 @@ func countOneTwo(_ aArr :[Int]) -> [Int] {
     return [countOne, countTwo]
 }
 ```
+
+
+# 다중 for문
+
+for문 속에 for문을 사용하는 걸 의미한다. 어쩐지 생각만해도 정신이 산란해 지면서 오늘의 공부를 이만 포기하고 싶어지는 느낌이다. 아무래도 반복문은 시간의 흐름에 몸을 맡긴 인간에게는 직관적이지 않은 것 같다. 게다가 반복문 안에 또 반복문이라니.
+
+
+배열의 숫자만큼 `*`을 출력하는 함수를 짜보았다.
+
+```swift
+func printStar(_ starArr : [Int]) {
+    for i in 0..<starArr.count{
+        var starCount = starArr[i]
+        var starCountArr : String = ""
+        for _ in 0..<starCount {
+            starCountArr = starCountArr + "*"
+        }
+        print(starCountArr)
+    }
+}
+```
