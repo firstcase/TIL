@@ -63,3 +63,27 @@ func printStar(_ starArr : [Int]) {
     }
 }
 ```
+
+# 다중 for문 복습
+
+오늘은 숫자 배열을 문자열로 바꿔서 출력하는 함수를 짜 보았다.
+선생님이 카카오 공채 코딩테스트 문제를 조금 쉽게 만들어서 준 예제다.
+
+```swift
+func printMap(_ intArr :[[Int]]) {
+    for i in 0..<intArr.count{
+        var singleArr = intArr[i]
+        var mapArr = ""
+        for j in 0..<singleArr.count {
+            if singleArr[j] == 1 {
+                mapArr = mapArr + "#"
+            } else {
+                mapArr = mapArr + " "
+            }
+        }
+        print(mapArr)
+    }
+}
+```
+잘못된 곳에 mapArr를 초기화 하는 코드를 넣는 바람에
+코드를 실행시켰는데 빈칸만 출력된 코미디가 한 번 연출되었다...ㅋ
