@@ -87,3 +87,30 @@ func printMap(_ intArr :[[Int]]) {
 ```
 잘못된 곳에 mapArr를 초기화 하는 코드를 넣는 바람에
 코드를 실행시켰는데 빈칸만 출력된 코미디가 한 번 연출되었다...ㅋ
+
+
+# 두개의 숫자배열 합치기
+
+두개의 배열을 받아서 하나의 배열로 바꿔주는 함수를 만들어 보았다.
+
+```swift
+func merge(_ arr1 : [[Int]], _ arr2 : [[Int]]) -> [[Int]] {
+    var finalArr = [[Int]]()
+    for i in 0..<arr1.count {
+        finalArr.append([])
+        var singleArr1 = arr1[i]
+        var singleArr2 = arr2[i]
+        for j in 0..<arr1[i].count {
+            if singleArr1[j] + singleArr2[j] == 0 {
+                finalArr[i].append(0)
+            } else {
+                finalArr[i].append(1)
+            }
+        }
+    }
+    return finalArr
+```
+
+이렇게 짠 merge 함수와 위에 짠 printMap을 합치면
+["라이언의 비밀지도"](http://tech.kakao.com/2017/09/27/kakao-blind-recruitment-round-1/)라는 이름의 카카오 신입공채 코딩문제를 풀 수 있다.
+물론 완전히 똑같은 문제는 아니고 약간 다르긴한데, 유사한 방식으로 풀수 있다. 
