@@ -30,3 +30,19 @@ func isExist (_ arr : [Int], _ target : Int) -> Bool {
 배열의 가운데 값을 찾아 찾으려는 값고 크기를 비료해서 절반을 버리는 방식으로 찾는 것이다.
 [바이너리 서치 설명](https://en.wikipedia.org/wiki/Binary_search_algorithm)
 세상에 희한한 일을 하는 사람들이 많아서, 바이너리 서치를 플라밍고 댄스로 이해해 볼 수도 있다. https://www.youtube.com/watch?v=iP897Z5Nerk
+
+
+## 바이너리 서치 구현을 위한 연습 01
+
+바이너리 서치를 구현하려면 먼 길을 가야할 것 같은데,
+첫 번째 단계로 긴 배열을 받아서 절반만 출력하는 함수를 짜 보았다.
+
+```swift
+func leftHalf(_ longArr : [Int]) -> [Int]{
+    var halfArr = [Int]()
+    for i in 0..<longArr.count/2 {
+        halfArr.append(longArr[i])
+    }
+    return halfArr
+}
+```
