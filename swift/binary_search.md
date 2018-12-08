@@ -46,3 +46,26 @@ func leftHalf(_ longArr : [Int]) -> [Int]{
     return halfArr
 }
 ```
+
+## 바이너리 서치 구현을 위한 연습 02
+
+반대로 오른쪽 함수를 출력하는 함수를 짜고,
+중간값과 숫자 하나를 비교해서 한쪽 배열을 출력하는 함수도 만들어 보았다.
+```swift
+func rightHalf(_ longArr : [Int]) -> [Int]{
+    var halfArr = [Int]()
+    for i in longArr.count/2..<longArr.count {
+        halfArr.append(longArr[i])
+    }
+    return halfArr
+}
+
+func leftRight(_ longArr : [Int], _ x : Int) -> [Int]{
+    var middle = longArr[longArr.count/2]
+    if middle <= x {
+        return rightHalf(longArr)
+    } else {
+        return leftHalf(longArr)
+    }
+}
+```
