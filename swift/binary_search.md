@@ -69,3 +69,47 @@ func leftRight(_ longArr : [Int], _ x : Int) -> [Int]{
     }
 }
 ```
+
+## 바이너리 서치 구현을 위한 연습 03
+
+어제 짠 leftRight 함수에 종료 조건을 추가 해 보았다.
+
+```swift
+func leftRight(_ longArr : [Int], _ x : Int) -> [Int]{
+    if longArr == [] {
+        print("끝")
+        return []
+    }
+    var middle = longArr[longArr.count/2]
+    if middle < x {
+        return rightHalf(longArr)
+    } else if middle == x {
+        print("찾음")
+        return []
+    }
+    else {
+        return leftHalf(longArr)
+    }
+}
+```
+
+그리고 새로운 개념인 '리컬시브 함수'를 배웠다.
+한국말로는 재귀함수다.
+
+```swift
+func sum(_ to: Int) -> Int {
+    return runSum(to, 1, 0)
+}
+
+func runSum(_ to: Int, _ i: Int, _ result: Int) -> Int {
+    if i == to {
+        return result + i
+    } else {
+        return runSum(to, i + 1, result + i)
+    }
+}
+```
+위의 코드 처럼 for문을 돌리지 않고
+runSum 함수가 다시 인자를 바꿔서 자기 자신을 부르는 방식으로
+sum을 계산해 볼 수 있다.
+이처럼 자기 자신을 다시 부르는 함수를 리컬시브 함수라고 한다.
