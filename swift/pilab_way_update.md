@@ -37,6 +37,7 @@ extension Array
     }
 }
 ```
+```swift
 let names = ["Arthur", "Ford", "Zaphod", "Marvin", "Trillian"]  
 print(names.random())  
 // Output: Trillian
