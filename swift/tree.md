@@ -51,3 +51,52 @@ var a = Node("동물")
         print(a.right?.right?.value)
 ```
 데이터 구조를 만들어주면 a값만 가지고도 "불도그"를 출력할 수 있게 된다.
+
+# 트리 문제풀기
+
+트리의 root node 를 인자로 받아서 "라이언"이 포함된 데이터 개수를 출력하는 함수를 짜 보았다. for문을 돌릴 수 있을 것 같은 느낌이 들지만, 생각보다 어떻게 돌려야 할지 상황이 난감해서 일단은 3단 트리라고 가정하고 if문을 모두 작성했다.
+
+```swift
+func countRyanIn(_ word : Node) -> Int {
+    var result = 0
+    var finder = "라이언"
+    if word.value == finder {
+        result = result + 1
+    }
+    if word.right?.value == finder {
+        result = result + 1
+    }
+    if word.left?.value == finder {
+        result = result + 1
+    }
+    if word.right?.left?.value == finder {
+        result = result + 1
+    }
+    if word.right?.right?.value == finder {
+        result = result + 1
+    }
+    if word.left?.right?.value == finder {
+        result = result + 1
+    }
+    if word.left?.left?.value == finder {
+        result = result + 1
+    }
+    return result
+}
+```
+결과는 잘 나오지만 짜면서도 뭔가 계속 반복된 것을 적는 느낌이 들어서 이런 코드를 짜도 될까 하는 죄책감이 든다.
+
+재귀를 이용하면 좀 더 짧게 짤 수 있다. 재귀로 짠 건 사실 내가 짜지는 않았고 선생님이 짜서 보여주었다.
+```swift
+func countRyanIn2(_ word : Node) -> Int {
+    var result = 0
+    if (word.value == "라이언") {
+        result = 1
+    }
+    if (word.left == nil && word.right == nil) {
+        return result
+    } else {
+        return result + countRyanIn2(word.left!) + countRyanIn2(word.right!)
+    }
+}
+```
