@@ -113,3 +113,33 @@ func runSum(_ to: Int, _ i: Int, _ result: Int) -> Int {
 runSum 함수가 다시 인자를 바꿔서 자기 자신을 부르는 방식으로
 sum을 계산해 볼 수 있다.
 이처럼 자기 자신을 다시 부르는 함수를 리컬시브 함수라고 한다.
+
+# 바이너리 서치 구현하기
+
+알고리즘 책의 도움을 받아서 알고리즘을 구현해 보았다.
+책에서는 코드를 파이썬으로 작성했는데 swift와 달리 타입 지정을 안해도 되서 유리한 점이 있었다.
+
+```swift
+func binarySearch(_ list : [Int], _ item : Int) -> Int? {
+    var low = 0
+    var high = list.count - 1
+
+    var mid = (low + high) / 2
+    var guess = list[mid]
+
+    while low <= high {
+        mid = (low + high) / 2
+        guess = list[mid]
+
+        if guess == item {
+            return mid
+        }
+        if guess > item {
+            high = mid - 1
+        } else {
+            low = mid + 1
+        }
+    }
+    return nil
+}
+```
