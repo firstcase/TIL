@@ -35,4 +35,39 @@
 
 큐는 실생활에서와 완전히 똑같이 동작한다. 버스정류장에 줄을 서있다면 앞에 있는 사람이 먼저 버스를 타게 된다. 큐도 마찬가지다. 큐는 큐 안의 원소에 임의로 접근할 수 없다는 점에서 스택과 비슷하다. 큐에는 삽입과 제거라고 하는 두 가지 연산이 있다.
 
-큐는 선입선출(FIFO) 자료 구조를 갖는다. 반대로 스택은 후입선출(LIFO) 구조이다. 
+큐는 선입선출(FIFO) 자료 구조를 갖는다. 반대로 스택은 후입선출(LIFO) 구조이다.
+
+### 4. 그래프의 구현
+
+해시 테이블을 사용해서 키에 값을 할당할 수 있다. 정점에 이웃하는 정점을 할당하는 방식이다.
+키나 값을 넣을 때 순서는 중요하지 않다. 해시 테이블은 순서를 가지지 않기 때문이다.
+
+방향을 가지는 그래프를 방향 그래프(directed graph)라고 하고 방향성을 갖지 않는 그래프를 무방향 그래프(undirected graph)라고 한다. 무방향 그래프는 방향성을 갖지 않기 때문에 이어진 두 정점은 서로 이웃이 된다.
+
+###5. 알고리즘의 구현
+
+swift로 너비 우선 탐색 알고리즘을 구현해 보았다.
+망고 판매상을 찾아서 네트워크를 탐색하는 방식이다.
+```swift
+func search(_ name : String) -> Bool{
+    var searchQueue = [String]()
+    searchQueue += graph[name]!
+    var searched = [String]()
+
+    while !searchQueue.isEmpty {
+        var person = searchQueue.first!
+        searchQueue.remove(at: 0)
+        if searched.contains(person) == false {
+            if person.last == "m" {
+                print("\(person) is a mango seller!")
+                return true
+            } else {
+                searchQueue += graph[person]!
+                searched.append(person)
+            }
+        }
+    }
+    return false
+}
+```
+너비 우선 탐색의 실행시간은 O(사람의 수 + 간선의 수)가 되고 보통 O(V+E)라고 표현한다. 
