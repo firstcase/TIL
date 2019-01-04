@@ -24,3 +24,55 @@
 ## 4. 간선의 가중치가 음수인 경우
 
 일단 어떤 정점을 처리하면 그 정점에 도달하는 더 싼 경로는 존재하지 않아야 하는데, 간선 가중치가 음수일 경우 더 싼길이 발견된다. 그래서 음의 가중치를 가진 간선이 있으면 다익스트라 알고리즘을 사용할 수 없다. 만약 음의 가중치를 가진 그래프에서 최단 경로를 찾고 싶다면 벨만-포트 알고리즘(bellman-ford algorithm)을 사용하면 된다.
+
+
+## 5. 구현
+다익스트라 알고리즘을 swift로 구현해보았다.
+책은 파이썬으로 구현을 했는데,
+이걸 swift로 구현하기 위해서는 엄청난 느낌표질(!!!!!)을 해야한다.ㅠㅠㅠㅠ
+두 번 다시 swift로 다익스트라 구현하지 않겠다는 다짐을 한 밤...
+
+```swift
+var graph : [String : [String : Float]] = ["start" : ["a" : 6, "b" : 2],
+             "a" : ["fin" : 1],
+             "b" : ["a" : 3, "fin" : 5],
+             "fin" : [:] ]
+
+var infinity = Float.infinity
+var costs = ["a" : 6, "b" : 2, "fin" : Float.infinity]
+var parents = ["a" : "start", "b" : "start" ]
+var processed = [String]()
+
+func findLowestCostNode (_ costs : [String : Float]) -> String? {
+    var lowestCost = Float.infinity
+    var lowestCostNode : String? = nil
+    for node in costs.keys {
+        var cost = costs[node]!
+        if cost < lowestCost && !processed.contains(node) {
+            lowestCost = cost
+            lowestCostNode = node
+        }
+    }
+    return lowestCostNode
+}
+
+
+func dijkstra() {
+    var node = findLowestCostNode(costs)
+    while node != nil {
+        var cost = costs[node!]!
+        var neighbors = graph[node!]!
+        for i in neighbors.keys {
+            var newCost = cost + neighbors[i]!
+            if costs[i]! > newCost {
+                costs[i] = newCost
+                parents[i] = node
+            }
+        }
+        processed.append(node!)
+        node = findLowestCostNode(costs)
+    }
+    print(parents)
+    print(costs)
+}
+```
