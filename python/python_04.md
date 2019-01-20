@@ -33,3 +33,24 @@ Generic Imports
 import math
 print math.sqrt(25)
 ```
+```python
+from math import sqrt
+from math import *
+```
+
+```python
+maximum = max(1,2,3,4,5)
+print maximum
+
+minimum = min(-1,1,2,3,4,5)
+print minimum
+
+absolute = abs(-42)
+print absolute
+
+def distance_from_zero(n):
+  if type(n) == int or type(n) == float:
+    return abs(n)
+  else:
+    return "Nope"
+```
