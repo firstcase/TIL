@@ -114,3 +114,96 @@ def reverse(text):
     return word
 ```
 - 글자를 거꾸로 출력하는 함수, len을 써서 글자 위치를 숫자화 한다
+
+```python
+def anti_vowel(text):
+    result = ""
+    vowels = "ieaouIEAOU"
+    for char in text:
+          if char not in vowels:
+            result += char
+    return result
+
+# 함수형으로 짠다면
+def anti_vowel(text):
+ return filter(lambda c: c not in "aeiouAEIOU", text)
+```
+```clojure
+; 클로저로 짠다
+(defn anti-vowel [text]
+  (apply str (filter #(not (includes? "aeiouAEIOU" (str %))) text)))
+```
+- 모음을 필터링해서 단어를 출력할 때 'not in'을 사용하면 간단하게 포함여부를 체크할 수 있다. 글자를 할당할 때도 += 연산자를 사용할 수 있다.
+
+```python
+def scrabble_score(word):
+  word = word.lower()
+  total = 0
+  for letter in word:
+    for leter in score:
+      if letter == leter:
+        total = total + score[leter]
+  return total
+```
+- 대문자를 소문자로 만들 때 word.lower() 를 씀
+
+```Python
+def censor(text, word):
+    words = text.split()
+    result = ''
+    stars = '*' * len(word)
+    count = 0
+    for i in words:
+        if i == word:
+            words[count] = stars
+        count += 1
+    result =' '.join(words)
+
+    return result
+
+print censor("this hack is wack hack", "hack")
+```
+- 텍스트분할은 a.split()으로 표현함. text.split(a) <- 이렇게 쓰지 않는다...
+- '*' * 4 = ****
+- words[count]을 쓰면 나뉘어진 단어를 인덱싱해서 쓸 수 있다.
+
+```python
+def remove_duplicates(inputlist):
+    if inputlist == []:
+        return []
+
+    # Sort the input list from low to high    
+    inputlist = sorted(inputlist)
+    # Initialize the output list, and give it the first value of the now-sorted input list
+    outputlist = [inputlist[0]]
+
+    # Go through the values of the sorted list and append to the output list
+    # ...any values that are greater than the last value of the output list
+    for i in inputlist:
+        if i > outputlist[-1]:
+            outputlist.append(i)
+
+    return outputlist
+
+print remove_duplicates([1, 1, 2, 2])
+```
+- outputlist에 왜 inputlist의 0번째 요소를 할당해주는가?
+- outputlist[-1]은 무엇을 의미하는가??
+
+```python
+def median(lst):
+    sorted_list = sorted(lst)
+    if len(sorted_list) % 2 != 0:
+        #odd number of elements
+        index = len(sorted_list)//2
+        return sorted_list[index]
+    elif len(sorted_list) % 2 == 0:
+        #even no. of elements
+        index_1 = len(sorted_list)/2 - 1
+        index_2 = len(sorted_list)/2
+        mean = (sorted_list[index_1] + sorted_list[index_2])/2.0
+        return mean
+```
+- sorted_list[len(sorted_list)/2] <- 이런식으로 할당이 가능한지?
+- 왜 //2 이런식으로 슬래시 두개를 쓰는건지?
+- elif의 인덱스 넘버 정할 때 roundup or rounddown 을 쑬 수 없는지?
