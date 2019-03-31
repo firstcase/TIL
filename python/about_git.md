@@ -64,15 +64,15 @@ To https://github.com/firstcase/test.git
 - 아니면 아톰에서 리파지토리 생성부터 할 수 있음
 
 # 5. commit과 push
-commit : 파일 및 디렉토리에 대한 변경 사항을 Git의 인덱스에 기록한다.(커미트는 로컬 저장소에 적용되므로 원격 중앙 저장소를 사용하는 경우에는 Git의 push 명령을 사용하여 로컬 변경 사항을 원격 저장소에 저장해야 한다.)
+- commit : 파일 및 디렉토리에 대한 변경 사항을 Git의 인덱스에 기록한다.(커미트는 로컬 저장소에 적용되므로 원격 중앙 저장소를 사용하는 경우에는 Git의 push 명령을 사용하여 로컬 변경 사항을 원격 저장소에 저장해야 한다.)
 
-push : 로컬 인덱스 및 오브젝트 변경 정보를 사용하여 원격 저장소를 업데이트한다.
+- push : 로컬 인덱스 및 오브젝트 변경 정보를 사용하여 원격 저장소를 업데이트한다.
 
 # 6. fork
-fork : 다른 원격 저장소에 있는 히스토리를 그대로 나의 github 원격 저장소에 복사하는 것을 말한다. 다른 사람 프로젝트에 바로 push할 수 없기 때문에 일단 내 저장소로 프로젝트를 가져온다. 그다음 내가 contributing을 원래 원격 저장소로 요청할 수 있다.
-[참고이미지] https://ourcstory.tistory.com/131
+- fork : 다른 원격 저장소에 있는 히스토리를 그대로 나의 github 원격 저장소에 복사하는 것을 말한다. 다른 사람 프로젝트에 바로 push할 수 없기 때문에 일단 내 저장소로 프로젝트를 가져온다. 그다음 내가 contributing을 원래 원격 저장소로 요청할 수 있다.
+- [참고이미지] https://ourcstory.tistory.com/131
 
 # 7. pull request와 merge
-pull request : 원래 리파지토리에 내 커밋의 반영을 요청하는 것
-merge : 수정된 코드를 병합하는 것
-[자세한 방법] https://wayhome25.github.io/git/2017/07/08/git-first-pull-request-story/
+- pull request : 원래 리파지토리에 내 커밋의 반영을 요청하는 것
+- merge : 수정된 코드를 병합하는 것
+- [자세한 방법] https://wayhome25.github.io/git/2017/07/08/git-first-pull-request-story/
