@@ -74,3 +74,45 @@ movies = {
 
 print movies.items()
 ```
+
+# INTRODUCTION TO BITWISE OPERATORS
+
+```PYTHON
+one = 0b1
+two = 0b10
+three = 0b11
+four = 0b100
+five = 0b101
+six  = 0b110
+seven = 0b111
+eight = 0b1000
+nine  = 0b1001
+ten = 0b1010
+eleven = 0b1011
+twelve = 0b1100
+
+print bin(1)
+# 0b1
+
+int("110", 2)
+# ==> 6
+```
+- 숫자를 이진수로 표현할 수 있다.
+- bin 함수를 쓰면 숫자를 바이너리값으로 바꿀 수 있다.
+- int 함수는 텍스트를 숫자 타입으로 바꿔주는데 두 번째 인자를 적을 수 있고, 이 경우 두번째 인자로 받은 진법으로 적힌 숫자를 10진법으로 반환해준다.
+
+```python
+shift_right = 0b1100
+shift_left = 0b1
+
+# Your code here!
+shift_right = shift_right >> 2
+shift_left = shift_left << 2
+
+print bin(shift_right)
+print bin(shift_left)
+#0b11
+#0b100
+```
+- '>>'나 '<<'를 써서 비트를 옮길 수 있다.
+- or 연산자, not 연산, and 연산, xor연산 등등이 같이 나오는 10장..
