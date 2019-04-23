@@ -71,3 +71,48 @@ print(dartgame("1S*2T*3S"))
 ```
 - 점수가 한 자리수일 수도 있고 두 자리수일 수도 있어서 각 경우의 수를 digit으로 세어서 구분을 했다. 덕분에 코드는 매우 누더기!
 - 엄청나게 그지깽깽이 같은 코드지만 정답을 생산하고 있기 때문에 오늘은 이만 만족하기로 했다^^;;
+
+- 시간 복잡도를 줄이는 방법으로는 아래와 같은 코드를 짤 수 있다. for문을 줄이는 대신에 표현력은 약간 떨어진다.
+```PYTHON
+import math
+
+def solution(input):
+    input = input + "."
+    score = ""
+    level = ""
+    special = 1
+    total_score = 0
+    pre_score = 0
+    has_first_calc = False
+    for s in input:
+        if s.isdigit() or s == ".":
+            if level != "":
+                if special == 2 and has_first_calc:
+                    pre_score *= special
+                total_score += pre_score
+                pre_score = math.pow(int(score), level) * special
+                score = ""
+                level = ""
+                special = 1
+            score += s
+            has_first_calc = True
+        elif s == "S":
+            level = 1
+        elif s == "D":
+            level = 2
+        elif s == "T":
+            level = 3
+        elif s == "*":
+            special = 2
+        elif s == "#":
+            special = -1
+    return total_score + pre_score
+
+print(solution("1S2D*3T") == 37)
+print(solution("1D2S#10S") == 9)
+print(solution("1D2S0T") == 3)
+print(solution("1S*2T*3S") == 23)
+print(solution("1D#2S*3S") == 5)
+print(solution("1T2D3D#") == -4)
+print(solution("1D2S3T*") == 59)
+```
