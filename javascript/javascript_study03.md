@@ -69,3 +69,52 @@ if(!NaN){
     alert('NaN');
 }
 ```
+
+# 반복문
+
+- while : while문은 while문 뒤에 따라오는 괄호 안의 조건이 참(true)면 중괄호 안의 코드 구간을 반복적으로 실행한다.
+```javascript
+while (조건){
+    반복해서 실행할 코드
+}
+
+var i = 0;
+// 종료조건으로 i의 값이 10보다 작다면 true, 같거나 크다면 false가 된다.
+while(i < 10){
+    // 반복이 실행될 때마다 coding everybody <br />이 출력된다. <br /> 줄바꿈을 의미하는 HTML 태그
+    document.write('coding everybody <br />');
+    // i의 값이 1씩 증가한다.
+    i++
+}
+```
+
+- for : for문은 제일 먼저 '초기화'를 한다.
+```javascript
+for(초기화; 반복조건; 반복이 될 때마다 실행되는 코드){
+    반복해서 실행될 코드
+}
+
+for(var i = 0; i < 10; i++){
+    document.write('coding everybody'+i+'<br />');
+}
+```
+
+- break : 반복작업을 중간에 중단시키고 싶다면 break를 사용하면 된다.
+```javascript
+for(var i = 0; i < 10; i++){
+    if(i === 5) {
+        break;
+    }
+    document.write('coding everybody'+i+'<br />');
+}
+```
+
+- continue : 실행은 즉시 중단되면서 반복은 계속하게 할 때 사용한다.
+```javascript
+for(var i = 0; i < 10; i++){
+    if(i === 5) {
+        continue;
+    }
+    document.write('coding everybody'+i+'<br />');
+}
+```
