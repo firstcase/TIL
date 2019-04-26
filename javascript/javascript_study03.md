@@ -118,3 +118,56 @@ for(var i = 0; i < 10; i++){
     document.write('coding everybody'+i+'<br />');
 }
 ```
+
+# 함수
+https://www.opentutorials.org/course/743/4729
+
+- function 뒤에 함수의 이름이 오고, 소괄호가 따라온다. 소괄호에 인자를 써주는데, 인자는 생략 할 수 있다. 함수를 호출 했을 때 실행하게 될 부분이 중괄호 안쪽에 온다.
+```javascript
+function numbering(){
+    i = 0;
+    while(i < 10){
+        document.write(i);
+        i += 1;
+    }   
+}
+numbering();
+```
+
+- return : return 뒤에 따라오는 값을 함수의 결과로 반환하고 함수를 종료시킨다.
+```javascript
+function get_member1(){
+    return 'egoing';
+}
+
+function get_member(){
+    return 'egoing';
+    return 'k8805';
+    return 'sorialgi';
+}
+alert(get_member());
+// 결과는 'egoing'이다. 그 뒤는 실행되지 않는다.
+```
+
+- 인자 : 인자(argument)는 함수로 유입되는 입력 값
+```javascript
+function get_arguments(arg1, arg2){
+    return arg1 + arg2
+}
+
+alert(get_arguments(10, 20));
+alert(get_arguments(20, 30));
+// 복수의 인자를 받고 싶으면 ','로 연결하면 된다.
+```
+
+- 변수에 함수를 할당할 수 있다.
+```javascript
+var numbering = function (){
+    i = 0;
+    while(i < 10){
+        document.write(i);
+        i += 1;
+    }   
+}
+numbering();
+```
