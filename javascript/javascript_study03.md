@@ -171,3 +171,60 @@ var numbering = function (){
 }
 numbering();
 ```
+
+# 배열
+https://www.opentutorials.org/course/743/4736
+
+- 배열의 생성
+```javascript
+var member = ['egoing', 'k8805', 'sorialgi']
+
+alert(member[0]);
+alert(member[1]);
+alert(member[2]);
+```
+
+- 배열과 반복문의 결합
+```javascript
+function get_members(){
+    return ['egoing', 'k8805', 'sorialgi'];
+}
+members = get_members();
+// members.length는 배열에 담긴 값의 숫자를 알려준다.
+for(i = 0; i < members.length; i++){
+    // members[i].toUpperCase()는 members[i]에 담긴 문자를 대문자로 변환해준다.
+    document.write(members[i].toUpperCase());   
+    document.write('<br />');
+```
+
+- 배열에 원소 추가하기  
+```javascript
+var li = ['a', 'b', 'c', 'd', 'e'];
+// 뒤에 추가할 때는 push
+li.push('f');
+
+// 복수의 인자를 추가할 때는 concat
+li = li.concat(['f', 'g']);
+
+// 맨 앞의 인자를 추가할 때는 unshift
+li.unshift('z');
+
+// splice 로 배열의 두번째에 'B'를 추가할 수 있다
+li.splice(2, 0, 'B');
+```
+
+- 원소 제거 & 정렬
+```javascript
+var li = ['a', 'b', 'c', 'd', 'e'];
+// 첫번째 원소를 제거할 때 shift를 쓴다
+li.shift();
+
+// 끝 점의 원소를 제거할 때는 pop
+li.pop();
+
+// 정렬
+li.sort();
+
+// 역순 정렬
+li.reverse();
+```
