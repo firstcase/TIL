@@ -228,3 +228,50 @@ li.sort();
 // 역순 정렬
 li.reverse();
 ```
+
+
+# 객체(Object)
+https://www.opentutorials.org/course/743/6491
+
+- 객체의 생성
+```javascript
+var grades = {'egoing': 10, 'k8805': 6, 'sorialgi': 80};
+
+var grades = {};
+grades['egoing'] = 10;
+grades['k8805'] = 6;
+grades['sorialgi'] = 80;
+
+var grades = new Object();
+grades['egoing'] = 10;
+grades['k8805'] = 6;
+grades['sorialgi'] = 80;
+
+var grades = {'egoing': 10, 'k8805': 6, 'sorialgi': 80};
+alert(grades['sorialgi']);
+
+alert(grades.sorialgi);
+// 클래스처럼 값을 불러올 수 있는 것이 자바스크립트의 특징이다
+```
+
+- 객체와 반복문 함께 사용하기
+```javascript
+var grades = {'egoing': 10, 'k8805': 6, 'sorialgi': 80};
+for(key in grades) {
+    document.write("key : "+key+" value : "+grades[key]+"<br />");
+}
+// for 문은 in 뒤에 따라오는 배열의 key 값을 in 앞의 변수 name에 담아서 반복문을 실행한다. 반복문이 실행될 때 변수 key의 값으로 egoing, k8805, sorialgi가 순차적으로 할당되기 때문에 grades[key]를 통해서 객체의 값을 알아낼 수 있다.
+```
+
+- 객체 지향 : 클래스를 선언하지 않고 함수를 할당해서 쓸 수 있다.(신기)
+```javascript
+var grades = {
+    'list': {'egoing': 10, 'k8805': 6, 'sorialgi': 80},
+    'show' : function(){
+        for(var name in this.list){
+            document.write(name+':'+this.list[name]+"<br />");
+        }
+    }
+};
+grades.show();
+```
