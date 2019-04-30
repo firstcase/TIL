@@ -275,3 +275,50 @@ var grades = {
 };
 grades.show();
 ```
+
+# 정규표현식 (regular expression)
+https://www.opentutorials.org/course/743/6580
+
+
+1. 정규표현식 생성
+정규표현식은 두가지 단계로 이루어진다. 하나는 컴파일(compile) 다른 하나는 실행(execution)이다.
+```javascript
+var pattern = /a/
+
+var pattern = new RegExp('a');
+```
+
+2. 정규 표현식 메소드 실행
+```javascript
+console.log(pattern.exec('abcdef')); // ["a"]
+
+console.log(pattern.exec('bcdefg')); // null
+
+
+console.log(pattern.test('abcdef')); // true
+cnosole.log(pattern.test('bcdefg')); // false
+```
+
+3. 문자열 메소드 실행
+```javascript
+console.log('abcdef'.match(pattern)); // ["a"]
+console.log('bcdefg'.match(pattern)); // null
+
+console.log('abcdef'.replace(pattern, 'A'));  // Abcdef
+```
+
+4. 옵션  
+정규표현식 패턴을 만들 때 옵션을 설정할 수 있다.
+```javascript
+var xi = /a/;
+console.log("Abcde".match(xi)); // null
+var oi = /a/i;
+console.log("Abcde".match(oi)); // ["A"];
+// 'i'를 붙이면 대소문자를 구분하지 않는다
+
+var xg = /a/;
+console.log("abcdea".match(xg));
+var og = /a/g;
+console.log("abcdea".match(og));
+//'g'를 붙이면 검색된 모든 결과를 리턴한다
+```
