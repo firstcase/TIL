@@ -191,3 +191,71 @@ alert(numbers.sort(sortNumber)); // array, [20,10,9,8,7,6,5,4,3,2,1]
 </body>
 </html>
 ```
+
+# 클로저
+https://www.opentutorials.org/course/743/6544
+클로저(closure)는 내부함수가 외부함수의 맥락(context)에 접근할 수 있는 것을 가르킨다.
+
+1. 내부함수
+자바스크립트는 함수 안에서 또 다른 함수를 선언할 수 있다.
+```javascript
+function outter(){
+    function inner(){
+        var title = 'coding everybody';
+        alert(title);
+    }
+    inner();
+}
+outter();
+```
+내부함수는 외부함수의 지역변수에 접근할 수 있다.
+```javascript
+function outter(){
+    var title = 'coding everybody';  
+    function inner(){        
+        alert(title);
+    }
+    inner();
+}
+outter();
+```
+
+
+2. 클로저
+내부함수는 외부함수의 지역변수에 접근 할 수 있는데 외부함수의 실행이 끝나서 외부함수가 소멸된 이후에도 내부함수가 외부함수의 변수에 접근 할 수 있다. 이러한 메커니즘을 클로저라고 한다.
+```javascript
+function outter(){
+    var title = 'coding everybody';  
+    return function(){        
+        alert(title);
+    }
+}
+inner = outter();
+inner();
+```
+
+3. 클로저 응용
+```javascript
+var arr = []
+for(var i = 0; i < 5; i++){
+    arr[i] = function(){
+        return i;
+    }
+}
+for(var index in arr) {
+    console.log(arr[index]());
+}
+// 위의 코드는 아래와 같이 변경해야 한다.
+var arr = []
+for(var i = 0; i < 5; i++){
+    arr[i] = function(id) {
+        return function(){
+            return id;
+        }
+    }(i);
+}
+for(var index in arr) {
+    console.log(arr[index]());
+}
+```
+- 클로저로 인해서 i가 5가 되기 때문에 function 안에 function을 만들어주고 거기에 id라는 인자를 만들어서 쓰면 원하는 결과를 출력할 수 있다. 
