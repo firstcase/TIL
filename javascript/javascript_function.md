@@ -258,4 +258,53 @@ for(var index in arr) {
     console.log(arr[index]());
 }
 ```
-- 클로저로 인해서 i가 5가 되기 때문에 function 안에 function을 만들어주고 거기에 id라는 인자를 만들어서 쓰면 원하는 결과를 출력할 수 있다. 
+- 클로저로 인해서 i가 5가 되기 때문에 function 안에 function을 만들어주고 거기에 id라는 인자를 만들어서 쓰면 원하는 결과를 출력할 수 있다.
+
+
+# arguments
+https://www.opentutorials.org/course/743/6548
+
+1. arguments
+함수에는 arguments라는 변수에 담긴 숨겨진 유사 배열이 있다. 이 배열에는 함수를 호출할 때 입력한 인자가 담겨있다.
+
+```javascript
+function sum(){
+    var i, _sum = 0;    
+    for(i = 0; i < arguments.length; i++){
+        document.write(i+' : '+arguments[i]+'<br />');
+        _sum += arguments[i];
+    }   
+    return _sum;
+}
+document.write('result : ' + sum(1,2,3,4));
+```
+- 인자에 대해 정의를 제대로 안했지만 실제 sum 함수에 4개의 숫자를 인자로 넘겼다. 이런 것을 가능하게 하는 것이 바로 arguments 이다.
+- arguments는 함수안에서 사용할 수 있도록 그 이름이나 특성이 약속되어 있는 일종의 배열이다. arguments[0]은 함수로 전달된 첫번째 인자를 알아낼 수 있다. 또 arguments.length를 이용해서 함수로 전달된 인자의 개수를 알아낼 수도 있다. 이러한 특성에 반복문을 결합하면 함수로 전달된 인자의 값을 순차적으로 가져올 수 있다.
+
+
+2. 매개변수의 수
+- arguments.length : 함수로 전달된 실제 인자의 수
+- 함수.length : 함수에 정의된 인자의 수
+```javascript
+function zero(){
+    console.log(
+        'zero.length', zero.length,
+        'arguments', arguments.length
+    );
+}
+function one(arg1){
+    console.log(
+        'one.length', one.length,
+        'arguments', arguments.length
+    );
+}
+function two(arg1, arg2){
+    console.log(
+        'two.length', two.length,
+        'arguments', arguments.length
+    );
+}
+zero(); // zero.length 0 arguments 0
+one('val1', 'val2');  // one.length 1 arguments 2
+two('val1');  // two.length 2 arguments 1
+```
