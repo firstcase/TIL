@@ -308,3 +308,35 @@ zero(); // zero.length 0 arguments 0
 one('val1', 'val2');  // one.length 1 arguments 2
 two('val1');  // two.length 2 arguments 1
 ```
+
+# 함수의 호출
+
+함수를 호출하는 기본적인 방법
+```javascript
+function func(){
+}
+func();
+```
+- 함수 func는 Function이라는 객체의 인스턴스다. func는 객체 Function이 가지고 있는 메소드들을 상속하고 있다. 지금 이야기하려는 메소드는 Function.apply과 Function.call이다.
+```javascript
+function sum(arg1, arg2){
+    return arg1+arg2;
+}
+alert(sum.apply(null, [1,2]))
+```
+
+```javascript
+o1 = {val1:1, val2:2, val3:3}
+o2 = {v1:10, v2:50, v3:100, v4:25}
+function sum(){
+    var _sum = 0;
+    for(name in this){
+        _sum += this[name];
+    }
+    return _sum;
+}
+alert(sum.apply(o1)) // 6
+alert(sum.apply(o2)) // 185
+```
+- 함수 sum의 객체의 속성을 열거할 때 사용하는 for in 문을 이용해서 객체 자신(this)의 값을 열거한 후에 각 속성의 값을 지역변수 `_sum`에 저장한 후에 이를 리턴하고 있다.
+- sum의 o1 소속의 메소드가 된다는 것은 이렇게 바꿔 말할 수 있다. 함수 sum에서 this의 값이 전역객체가 아니라 o1이 된다는 의미다. 일반적인 객체지향 언어에서는 하나의 객체에 소속된 함수는 그 객체의 소유물이 된다. 하지만 JavaScript에서 함수는 독립적인 객체로서 존재하고, apply나 call 메소드를 통해서 다른 객체의 소유물인 것처럼 실행할 수 있다. 
