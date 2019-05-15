@@ -136,3 +136,27 @@ function Func(){
 }
 var o = new Func();
 ```
+
+4. apply, call
+```javascript
+var o = {}
+var p = {}
+function func(){
+    switch(this){
+        case o:
+            document.write('o<br />');
+            break;
+        case p:
+            document.write('p<br />');
+            break;
+        case window:
+            document.write('window<br />');
+            break;          
+    }
+}
+func();
+func.apply(o);
+func.apply(p);
+```
+- 함수를 어떤 방식으로 호출하느냐에 따라서 전혀 다른 객체에 종속시킬 수 있다.
+- 즉 함수가 누구의 소속인가에 따라서 this의 값은 그 소속인 객체를 가르킨다.
