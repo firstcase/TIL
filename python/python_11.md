@@ -128,3 +128,59 @@ class PartTimeEmployee(Employee):
 ```
 - 상속받아서 동일한 메소드 명으로 오버라이드가 가능하다.
 - super를 사용하면 부모클래스의 메소드를 사용할 수 있다.
+
+7. Create an instance of a class
+```python
+newObject = ClassName()
+```
+
+8. Initializing a class
+```PYTHON
+class Car(object):
+  condition = "new"
+  def __init__(self, model, color, mpg):
+    self.model = model
+    self.color = color
+    self.mpg   = mpg
+
+my_car = Car("DeLorean", "silver", 88)
+```
+- '__init__'에 전달되는 첫번째 인자는 self여야 함
+- 이후 추가 인자를 쓸 수 있고, 할당도 할 수 있다.
+
+9. Creating class methods
+```python
+class Car(object):
+  condition = "new"
+  def __init__(self, model, color, mpg):
+    self.model = model
+    self.color = color
+    self.mpg   = mpg
+
+  def display_car(self):
+    print "This is a %s %s with %s MPG." % (self.color, self.model, str(self.mpg))
+
+my_car = Car("DeLorean", "silver", 88)
+
+my_car.display_car()
+```
+- 메소드 만들 때는 self만 인자로 받으면 된다.
+- %s 활용하는 법을 잊지 말자!
+
+10. Building useful classes
+```python
+class Point3D(object):
+  def __init__(self, x, y, z):
+    self.x = x
+    self.y = y
+    self.z = z
+
+  def __repr__(self):
+    return "(%d, %d, %d)" % (self.x, self.y, self.z)
+
+my_point = Point3D(1, 2, 3)
+
+print my_point
+```
+- 실제로 파이썬에서 클래스를 활용할 때는 클래스의 객체를 나타내는 방식으로 많이 사용함
+- '__repr__' 메소드를 많이 쓴다.
