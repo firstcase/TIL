@@ -1,4 +1,5 @@
 01. Introduction
+
 생활코딩만 보고 공부해서는 문법을 익히기가 어려워서 코드카데미 강좌를 듣기 시작했다.
 
 - Console
@@ -72,3 +73,23 @@ console.log(Math.floor(Math.random() * 100));
 console.log(Math.ceil(43.8));
 console.log(Number.isInteger(2017));
 ```
+
+- Create a Variable: var / let
+```JavaScript
+var favoriteFood = 'pizza';
+var numOfSlices = 8 ;
+console.log(favoriteFood) ;
+console.log(numOfSlices) ;
+
+let changeMe = true ;
+changeMe = false ;
+console.log(changeMe) ;
+//output: false
+```
+
+- Create a Variable: const
+```JavaScript
+const entree = 'Enchiladas'
+console.log(entree) ;
+```
+- const로 할당하면 값을 변경할 수 없다. 값을 재할당할 거면 let을 쓰고 그렇지 않을 경우 const를 써주면 된다.
