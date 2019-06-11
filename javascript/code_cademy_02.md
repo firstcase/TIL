@@ -53,10 +53,9 @@ console.log(!sleepy); // Prints true
 
 - Truthy and Falsy
 which values are falsy— or evaluate to false when checked as a condition? The list of falsy values includes:  
----
+
 0  
 Empty strings like "" or ''  
 null which represent when there is no value at all  
 undefined which represent when a declared variable lacks a value  
 NaN, or Not a Number  
----
