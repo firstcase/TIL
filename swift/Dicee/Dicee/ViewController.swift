@@ -26,6 +26,8 @@ class ViewController: UIViewController {
         randomDiceIndex2 = Int.random(in: 0 ... 5)
         
         print(randomDiceIndex1)
+        
+        diceImageView1
     }
     
 
