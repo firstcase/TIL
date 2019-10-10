@@ -18,7 +18,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        diceImageView1.image = #imageLiteral(resourceName: "dice6")
+        diceImageView2.image = #imageLiteral(resourceName: "dice2")
     }
     
     @IBAction func rollButtonPressed(_ sender: UIButton) {
@@ -27,7 +29,6 @@ class ViewController: UIViewController {
         
         print(randomDiceIndex1)
         
-        diceImageView1
     }
     
 
