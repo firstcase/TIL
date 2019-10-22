@@ -1,10 +1,10 @@
-from flask import Flask, escape
+from flask import Flask, escape, request, render_template
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Hello Flask'
+    return render_template('index.html')
 
 @app.route('/info')
 def info():
-    return 'Info'
+    return return render_template('info.html')
