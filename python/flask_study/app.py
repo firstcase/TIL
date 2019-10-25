@@ -7,4 +7,4 @@ def index():
 
 @app.route('/info')
 def info():
-    return return render_template('info.html')
+    return render_template('info.html')
