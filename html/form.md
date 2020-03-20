@@ -129,4 +129,70 @@ input:focus, textarea:focus {
 </form>
 ```
 - "user_name", "user_email", "user_message"로 지정된 데이터는 action에 지정된 URL로 POST 방식으로 전송됨
-- 서버측에서는 HTTP 요청에 의해 구현된 3개의 키/밸류 항목의 목록 데이터를 받게 된다. 
+- 서버측에서는 HTTP 요청에 의해 구현된 3개의 키/밸류 항목의 목록 데이터를 받게 된다.
+
+6. 폼을 구성하는 다양한 엘리먼트
+- <fieldset> : 폼 태그 안에 관련있는 폼 엘리먼트들을 그룹화 할 때 사용
+- <legend> : 그룹화한 폼 엘리먼트들을 목적ㅇ 맞게 이름을 지정합니다.
+```HTML
+<html>  
+    <head>
+    </head>
+
+    <body>
+        <form action = "#" accept-charset="utf-8" name = "person_info" method = "get">
+            <fieldset style = "width:150">
+                <legend>개인 정보 입력</legend>
+                    이름 : <input type = "text" name = "name"/><br><br>
+                    나이 : <input type = "text" name = "age"/><br><br>
+            </fieldset>
+            <br>
+            <fieldset style = "width:180; height:180">
+                <legend>여가 활동</legend>
+                    취미 : <input type = "text" name = "hobby"/><br><br>
+                    특기 : <input type = "text" name = "specialty"/><br><br>
+            </fieldset>
+        </form>
+    </body>
+<html>  
+```
+- 다양햔 input 태그 알아보기
+  + type : 태그 모양을 다양하게 변경할 수 있습니다. type에는 text, radio, checkbox, password, button, hidden, fileupload, submit, reset 등을 지정할 수 있습니다.
+  + name : 태그 이름을 지정합니다.
+  + readonly : 태그를 읽기전용으로 합니다.
+  + maxlength : 해당 태그 최대 글자 수를 지정합니다.
+  + required : 해당 태그가 필수태그로 지정됩니다. 필수 태그를 입력하지 않고, submit 버튼을 누르면 에러메시지가 웹 브라우저에 출력됩니다. (HTML5 추가사항)
+  + autofocus : 웹 페이지가 로딩되자마자 이 속성을 지정한 태그로 포커스가 이동됩니다. (HTML5 추가사항)
+  + placeholder : 태그에 입력할 값에 대한 힌트를 줍니다. (HTML5 추가사항)
+
+```HTML
+<html>  
+    <head>
+    </head>
+
+    <body>
+        <form action = "#" accept-charset="utf-8" name = "person_info" method = "get">
+            <fieldset style = "width:150">
+                <legend>개인 정보 입력</legend>
+                   이름 : <input type = "text" name = "name" required/><br><br>
+                   주민번호 : <input type = "text" name = "security_number"
+                              pattern = "\d{6}\-\d{7}"
+                              title = "123456-1234567 형식으로 입력해주세요"/><br><br>
+
+                   아이디 : <input type = "text" name = "id"/><br><br>
+                   패스워드 : <input type = "password" name = "password"/><br><br>
+
+                   성별 : 남<input type = "radio" name = "gender" />
+                          여<input type = "radio" name = "gender" /><br><br>
+
+                   관심사 : 연예<input type = "checkbox" name = "checkbox1" />
+                            스포츠<input type = "checkbox" name = "checkbox2" />
+                            IT<input type = "checkbox" name = "checkbox3" /><br><br>
+
+                   <input type = "submit" value = "submit"/>
+                   <input type = "reset" value = "reset"/><br><br>
+            </fieldset>
+        </form>
+    </body>
+<html>  
+```
