@@ -88,3 +88,20 @@ def index():
 def info():
     return render_template('info.html')
 ```
+
+4. for문에서 index 가져오는 방법
+```HTML
+<ul>
+    {% for item in items %}
+   <li>
+     {{ loop.index }} 번째 줄입니다
+   </li>
+    {% endfor %}
+</ul>
+```
+출력결과는 아래와 같다.
+```
+1 번째 줄입니다
+2 번째 줄입니다
+3 번째 줄입니다
+```
