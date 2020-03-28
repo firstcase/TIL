@@ -12,3 +12,27 @@ def allBy7days(self):
     return db_session.query(Answer.team.distinct()).filter(Answer.created_at > a_week).all()
 ```
 - 참고 : https://stackoverflow.com/questions/17868743/doing-datetime-comparisons-in-filter-sqlalchemy
+
+# 데이터 가공에 필요한 기능들
+- 참고 : https://docs.sqlalchemy.org/en/13/orm/tutorial.html
+- counting
+```python
+session.query(User).filter(User.name.like('%ed')).count()
+# 2
+```
+  + count() : row가 몇 개인지 리턴해준다
+
+- func.count()
+```python
+from sqlalchemy import func
+
+session.query(func.count(User.name), User.name).group_by(User.name).all()
+# [(1, u'ed'), (1, u'fred'), (1, u'mary'), (1, u'wendy')]
+
+session.query(func.count('*')).select_from(User).scalar()
+# 4
+
+session.query(func.count(User.id)).scalar()
+# 4
+
+```
