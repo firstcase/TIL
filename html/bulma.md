@@ -4,6 +4,16 @@
 
 ## 써보기
 
+- 모든 코드는 컨테이너 안에 들어가야 양쪽 옆 정렬이 잘 맞는다
+- <body> 안에 컨테이너 클래스를 적어주면 잘 구현된다.
+```HTML
+<div class="container">
+  <div class="notification">
+    This container is <strong>centered</strong> on desktop.
+  </div>
+</div>
+```
+
 - html 파일에 head 태그 아래 tag를 추가한다.
 
 ```html
