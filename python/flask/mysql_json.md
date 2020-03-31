@@ -18,6 +18,12 @@ ERROR 3140 (22032) at line 2: Invalid JSON text:
 "Invalid value." at position 6 in value (or column) '[1, 2,'.
 ```
 - 만약 정확하지 않은 데이터를 입력하면 에러가 난다.
+- sqlalchemy 에서 테이블 생성할 때는 어떻게 해야하는가?
+  + JSON 임포트해주고, 컬럼은 타입에 (JSON)을 입력해준다.
+```python
+from sqlalchemy import JSON
+```
+[참고] https://docs.sqlalchemy.org/en/13/core/type_basics.html
 
 
 2. JSON 데이터를 만드는 데 사용하는 함수
