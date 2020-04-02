@@ -36,3 +36,23 @@ session.query(func.count(User.id)).scalar()
 # 4
 
 ```
+
+- sqlalchemy를 이용해서 JSON 데이터를 받으면 list로 반환된다.
+- like절로 검색하기
+```Python
+result = stock.query.filter(stock.name.like('%'+search_text+'%')).all()
+print(result)
+print(type(result))
+```
+
+- pandas를 이용해 변환할 수 있다.
+```python
+import pandas as df
+
+queryset = stock.query.filter(stock.name.like('%'+search_text+'%'))
+# 위와 달라진게 있다면 끝에 .all() 이 없다
+
+df = pd.read_sql(queryset.statement, queryset.session.bind)
+print(json.loads(df.to_json()))
+```
+- 옵션으로 orient='records'를 넣으면 다른 형태로 json을 구성할 수 있다.
