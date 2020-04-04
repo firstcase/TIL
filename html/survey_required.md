@@ -29,7 +29,7 @@ function check() {
   }
 
   if(!allChecked) {
-    alert("다체크해야한다");
+    alert("모든 문항에 응답해야 합니다");
   } else {
     alert("OK");
   }

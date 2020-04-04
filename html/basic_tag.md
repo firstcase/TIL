@@ -1,3 +1,18 @@
+## 0. <head> 태그
+- 참고 : https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started#Anatomy_of_an_HTML_document
+- 헤드의 내용은 페이지에 표시되지 않음. 이 내용이 하는 일은 페이지에 대한 metadata를 포함하는 것이다.
+```html
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+  </head>
+  <body>
+    <p>This is my page</p>
+  </body>
+</html>
+```
+
 ## 1. <meta> 태그
 - 문서의 키워드 혹은 제목, 요약
 
