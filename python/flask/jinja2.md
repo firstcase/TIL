@@ -89,6 +89,25 @@ def index():
 def info():
     return render_template('info.html')
 ```
+- 여러개의 분기가 필요하다면 elif나 else를 사용할 수 있음
+```HTML
+{% if users %}
+<ul>
+{% for user in users %}
+    <li>{{ user.username|e }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+```
+```HTML
+{% if kenny.sick %}
+    Kenny is sick.
+{% elif kenny.dead %}
+    You killed Kenny!  You bastard!!!
+{% else %}
+    Kenny looks okay --- so far
+{% endif %}
+```
 
 4. for문에서 index 가져오는 방법
 ```HTML
