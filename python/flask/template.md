@@ -18,3 +18,12 @@ def home():
 <p>{{greetingDictionary[key]}}</p>
 {% endfor %}
 ```
+
+- 복수의 파라미터를 넘겨줄 수 있음
+```Python
+@app.route('/survey')
+def survey():
+    survey_questions = query_question.all()
+    is_answered = answer_manager.is_answered()
+    return render_template('survey.html', questions=survey_questions, is_answered=is_answered)
+```
