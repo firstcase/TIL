@@ -56,3 +56,22 @@ df = pd.read_sql(queryset.statement, queryset.session.bind)
 print(json.loads(df.to_json()))
 ```
 - 옵션으로 orient='records'를 넣으면 다른 형태로 json을 구성할 수 있다.
+
+
+# 최근 일주일간 설문에 응답한 적이 있는지 확인하기
+
+```python
+import datetime
+
+class AnswerManager:
+
+    def is_answered(self, ldap_id):
+        current_time = datetime.datetime.now()
+        a_week = current_time - datetime.timedelta(weeks=1)
+        print(ldap_id)
+        result = db_session.query(Answer.ldap_id.distinct()).filter(Answer.created_at > a_week).filter(Answer.ldap_id == ldap_id).first()
+        return result is not None
+```
+- 최근 일주일간 응답한 데이터에서 id를 distinct로 추출한다.
+- filter를 연속해서 사용할 수 있기 때문에 최근 일주일 데이터를 거르고 특정 id와 일치하는지 거를 수 있다.
+- all() 대신에 first()를 사용할 수 있다. 쿼리의 첫 번째 엔티티를 반환한다.
