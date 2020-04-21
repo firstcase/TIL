@@ -62,3 +62,10 @@
         <button class="button">매우 그렇다</button>
     </div>
 ```
+
+4. summit 버튼 만들기
+```HTML
+<div class="buttons">
+  <input type="submit" class="button is-success is-fullwidth" value="응답완료">
+</div>
+```
