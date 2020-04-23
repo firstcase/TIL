@@ -23,6 +23,8 @@
 ```
 
 2. 라디오 버튼 활용하기
+- 아래와 같이 코드를 작성했을 때, 문항과 선택지가 나란한 한줄에 나오지 않고 미묘하게 단차가 났다.
+- 이유는 padding 차이였다. column 을 주면 padding 값이 들어가는데 radio 버튼 구역은 padding이 없어서 단차가 난 것이었음. <div class = "culumn control"> 로 수정해주면 나란하게 나오는 것을 확인할 수 있음. 
 ```html
 <div class="columns is-mobile">
         <div class="column is-6">팀원들은 상황변화에 따라 유연하게 행동이나 생각을 수정하는 편이다</div>
