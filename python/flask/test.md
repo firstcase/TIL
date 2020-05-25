@@ -1,5 +1,6 @@
 ## Unit Test 하는 법
 
+1. 코드 예시
 ```Python
 class UnitTest(unittest.TestCase):
     def setUp(self):
@@ -12,3 +13,19 @@ class UnitTest(unittest.TestCase):
 - 테스트하고 싶은 기능들을 test_mul(self)와 같은 형식으로 선언한 후 함수 내부에 원하는 기능을 넣으면 된다.
 - 'unittest.TestCase'라는 말을 항상 써줘야 한다
 - setUp은 안해도 된다. 실제 테스트코드 전에 한 번 불러주는 것.
+
+
+2. pytest 설치
+```
+pip install pytest
+```
+- pytest 공식홈페이지 예제
+
+```python
+# content of test_sample.py
+def inc(x):
+    return x + 1
+
+def test_answer():
+    assert inc(3) == 5
+```
