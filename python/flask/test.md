@@ -29,3 +29,10 @@ def inc(x):
 def test_answer():
     assert inc(3) == 5
 ```
+
+3. pycharm 유닛테스트 기능 활용하기
+https://www.jetbrains.com/help/pycharm/testing-your-first-python-application.html
+- test 생성할 때 클래스 명에서 go to를 해줘야 test 선택지가 나온다.
+- class 이하의 매서드를 자동으로 test list로 추천한다. 원하는 메소드를 선택하면 된다.
+- 자동으로 fail이 출력되는 코드로 test 파일이 생성된다.
+- ok가 나게끔 마지막 코드를 수정하고, 중간에 원하는 코드를 짜면 된다. test db를 생성하는 것이 목적이므로 데이터를 저장하는 코드를 짜주면 완성.
