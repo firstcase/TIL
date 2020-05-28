@@ -36,3 +36,14 @@ https://www.jetbrains.com/help/pycharm/testing-your-first-python-application.htm
 - class 이하의 매서드를 자동으로 test list로 추천한다. 원하는 메소드를 선택하면 된다.
 - 자동으로 fail이 출력되는 코드로 test 파일이 생성된다.
 - ok가 나게끔 마지막 코드를 수정하고, 중간에 원하는 코드를 짜면 된다. test db를 생성하는 것이 목적이므로 데이터를 저장하는 코드를 짜주면 완성.
+
+4. 디버그
+- 테스트 코드 보다가 디버깅하는 법도 잠깐 보게 되었다. 
+- pycharm에서 벌레모양 버튼을 실행시키면 된다.
+- break point을 찍어두면 디버그 모드에서만 실행된다.
+- 우측의 'Watches'영역에 +를 눌러 특정 변수들의 값이 어떻게 변하는지 트래킹할 수 있다.
+- 'Mute break point'버튼을 누르면 중단점 작동을 멈추게 할 수 있다.
+- step over(F10) : break point 설정된 파일 내에서 중단점 이후 코드를 한줄씩 실행시킨다
+- step into(F11) : 프로젝트 전체에서 break point 이후의 코드를 한줄씩 실행
+- step out(shift + F11) : 중단점 이후에 실행되는 메소드로 이동
+- run to cursor(Ctrl + F10) : 현재 커서가 가리키고 있는 라인까지 이동
