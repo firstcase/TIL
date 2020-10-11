@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- 구글폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>스파르타코딩클럽 | 2주차 숙제</title>
+
+    <style>
+        * {
+            font-family: 'Cute Font', cursive;
+        }
+
+        .wrap {
+            width: 600px;
+            margin: auto;
+        }
+
+        .product-image {
+            width: 600px;
+            height: 400px;
+            background-image: url("https://t1.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/4arX/image/FToC1jQw1U0mAhJYnEmTPg7ZQD8.jpg");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .product-detail {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .order-form {
+            margin-bottom: 30px;
+        }
+
+        .button-place {
+            text-align: center;
+        }
+
+        .order-button {
+            width: 200px;
+        }
+
+        .orders {
+            margin-top: 100px;
+        }
+
+        .exchange-info {
+            color: blue;
+            font-weight: bold;
+        }
+
+    </style>
+
+    <script>
+        function order_finished() {
+            if ($('#order-name').val() == '') {
+                alert('이름을 완성해 주세요');
+                return;
+            } else if ($('#count').val() == '') {
+                alert('수량을 완성해 주세요');
+                return;
+            } else if ($('#address').val() == '') {
+                alert('주소를 완성해 주세요');
+                return;
+            } else if ($('#phone-num').val() == '') {
+                alert('휴대폰 번호를 완성해 주세요');
+                return;
+            }
+
+            alert('주문이 완료되었습니다.');
+
+            let name = $('#order-name').val();
+            let count = $('#count').val();
+            let address = $('#address').val();
+            let phoneNum = $('#phone-num').val();
+            let tempHtml = `<tr>
+                            <td> ${name}</td>
+                            <td> ${count}</td>
+                            <td> ${address}</td>
+                            <td> ${phoneNum}</td>
+                            </tr>`
+            $('#orders-box').append(tempHtml);
+
+        }
+
+        $(document).ready(function () {
+            $('#exchange').empty();
+            $.ajax({
+                type: "GET",
+                url: "https://api.manana.kr/exchange/rate.json",
+                data: {},
+                success: function (response) {
+                    let exchangeRate = response[1]['rate'];
+                    console.log(exchangeRate);
+                    $('#exchange').append(exchangeRate);
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div class="wrap">
+
+    <div class="product-image">
+
+    </div>
+
+    <div class="product-detail">
+        <h2>상품제목 <span style="font-size: 15pt">가격: 1,000,000원 / 마리</span></h2>
+        <div>
+            <p>
+                이 상품으로 말할 것 같으면 한국 다람쥐로써 한국 다람쥐이다.
+
+            </p>
+            <p>
+                깡에 나오는 한국 다람쥐와는 아무 상관이 없다.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="order-form">
+        <div class="exchange-info">
+            달러-원 환율:
+            <span id="exchange"></span>
+        </div>
+        <form>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">주문자 이름:</label>
+                <div class="col-sm-6">
+                    <input class="form-control" id="order-name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">수량:</label>
+                <div class="col-sm-6">
+                    <select class="form-control" id="count">
+                        <option selected value=""> -- 수량을 선택하세요 --</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">주소:</label>
+                <div class="col-sm-6">
+                    <input class="form-control" id="address">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">휴대폰 번호:</label>
+                <div class="col-sm-6">
+                    <input class="form-control" id="phone-num">
+                </div>
+            </div>
+
+        </form>
+
+
+    </div>
+
+    <div class="button-place">
+        <button onclick="order_finished()" type="button" class="btn btn-primary order-button">주문하기</button>
+    </div>
+
+    <div class="orders">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">이름</th>
+                <th scope="col">수량</th>
+                <th scope="col">주소</th>
+                <th scope="col">전화번호</th>
+            </tr>
+            </thead>
+            <tbody id="orders-box">
+            <tr>
+                <td>박르탄</td>
+                <td>10000</td>
+                <td>르탄시 코딩구 열심동</td>
+                <td>010-1234-5678</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>
